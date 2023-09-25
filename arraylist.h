@@ -7,6 +7,23 @@ class ArrayList : public List {
 	int *array;
 	int size = 0;
 	int capacity;
+
+	int removeOne(int num) {
+		// STEP 1: Find the num
+		for (int i = 0; i < size; i++) {
+			if (array[i] == num) {
+				// STEP 2: Move elements to left
+				for (int j = i+1; j < size; j++){
+					array[j-1] = array[j];
+				}
+				// STEP 3: Reset last elem
+				array[size-1] = 0;
+				size--;
+				return i+1;
+			}
+		}
+		return -1;
+	}
 	
 	public:
 	ArrayList() {
@@ -45,7 +62,7 @@ class ArrayList : public List {
 				// STEP 3: Reset last elem
 				array[size-1] = 0;
 				size--;
-				if (size <= capacity * (2.0/3)) {
+				if (capacity > 5 && size <= capacity * (2.0/3)) {
 					capacity *= 0.75;
 					if (capacity < 5) {
 						capacity = 5;
@@ -58,6 +75,24 @@ class ArrayList : public List {
 			}
 		}
 		return -1;
+	}
+	
+	int removeAll(int num) {
+		int ctr = 0;
+		while (removeOne(num) != -1) {
+			ctr++;
+		}
+		
+				if (capacity > 5 && size <= capacity * 0.6) {
+					capacity *= 0.80;
+					if (capacity < 5) {
+						capacity = 5;
+					}
+					array = (int*) realloc(array, capacity * sizeof(int) );
+					cout << "New capacity: " << capacity << endl;
+					cout << "Address: " << array << endl;
+				}
+		return ctr;
 	}
 	
 	void reset() {

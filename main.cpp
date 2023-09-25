@@ -1,7 +1,15 @@
 #include <iostream>
 #include "arraylist.h"
+
+struct foo {
+	int* a;
+	char ch, ch2;
+	int i;
+};
+
 int main() {
-	List* list = new ArrayList();
+	cout << "Size of foo " << sizeof(foo) << endl;
+	ArrayList* list = new ArrayList();
 	int *array = (int*) malloc(5 * sizeof(int));
 	int* rearray = (int*) realloc(array, 10 * sizeof(int));
 	int* rearray2 = (int*) realloc(rearray, 15 * sizeof(int));
@@ -22,6 +30,10 @@ int main() {
 			case 'r':
 				cin >> n;
 				list->remove(n);
+				break;
+			case 'R':
+				cin >> n;
+				cout << "Removed " << list->removeAll(n) << " stuffs" << endl;
 				break;
 		}
 	} while (op != 'x');
