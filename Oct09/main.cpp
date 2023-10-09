@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "linkedlist.h"
 using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -6,6 +7,7 @@ using namespace std;
 int main(int argc, char** argv) {
 	cout << sizeof(node) << endl; 
 	DoublyLL* list = new DoublyLL();
+//	DoublyLL* list = (DoublyLL*) calloc(1, sizeof(DoublyLL));
 	char op;
 	int num, pos;
 	do {

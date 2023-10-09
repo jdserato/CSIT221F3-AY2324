@@ -49,7 +49,7 @@ public:
 	}
 		
 	void add(int num) {
-		addFirst(num);
+		addLast(num);
 	}
 	
 	int get(int pos) {
@@ -63,7 +63,55 @@ public:
 	}
 	
 	int remove(int num) {
-		
+		node* curr = head;
+		int pos = 1;
+		while (curr) {
+			if (curr->elem == num) {
+				if (pos == 1) {
+					removeFirst();
+					return pos;
+				}
+				if (pos == size) {
+					removeLast();
+					return pos;
+				}
+				node* pred = curr->prev;
+				node* succ = curr->next;
+				pred->next = succ;
+				succ->prev = pred;
+				free(curr);
+				size--;
+				return pos;
+			}
+			curr = curr->next;
+			pos++;
+		}
+	}
+	
+	void addAt(int num, int pos) {
+		if (pos == 1) {
+			addFirst(num);
+			return;
+		}
+		if (pos > size) {
+			addLast(num);
+			return;
+		}
+		node* curr = head;
+		int ctr = 1;
+		while (ctr < pos) {
+			curr = curr->next;
+			ctr++;
+		} cout << "97 is good" << endl;
+		node* pred = curr->prev; cout << "98 is good" << endl;
+		node* succ = curr;cout << "99 is good" << endl;
+		node* n = (node*) malloc (sizeof(node));cout << "100is good" << endl;
+		n->elem = num;cout << "101is good" << endl;
+		n->next = succ;cout << "102is good" << endl;
+		n->prev = pred;cout << "103is good" << endl;
+		pred->next = n;cout << "104is good" << endl;
+		succ->prev = n;cout << "105is good" << endl;
+		size++;
 	}
 	
 	void removeFirst() {
