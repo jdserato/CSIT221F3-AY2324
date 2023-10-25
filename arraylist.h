@@ -33,14 +33,29 @@ class ArrayList : public List {
 		cout << "Negative capacity: " << (size_t) -capacity << endl;
 		cout << "Address (constructor): " << array << endl;
 	}
+	
+	void addLast(int num) {
+		add(num);
+	}
+	
+	int removeLast() {
+		int rem = array[size-1];
+		array[size-1] = 0;
+		size--;
+		if (capacity > 5 && size <= capacity * (2.0/3)) {
+			capacity *= 0.75;
+			if (capacity < 5) {
+				capacity = 5;
+			}
+			array = (int*) realloc(array, capacity * sizeof(int) );
+		}
+		return rem;
+	}
 		
 	void add(int num) {
-		cout << "Adding " << num << endl;
 		if (size >= capacity) {
 			capacity *= 1.5;
 			array = (int*) realloc(array, capacity * sizeof(int) );
-			cout << "New capacity: " << capacity << endl;
-			cout << "Address: " << array << endl;
 		}
 		array[size] = num;
 		size++;
@@ -100,6 +115,10 @@ class ArrayList : public List {
 			array[i] = 0;
 		}
 		size = 0;
+	}
+	
+	int _size() {
+		return size;
 	}
 	
 	void print() {
