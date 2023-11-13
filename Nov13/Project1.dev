@@ -1,6 +1,6 @@
 [Project]
-FileName=Sept25.dev
-Name=Sept25
+FileName=Project1.dev
+Name=Project1
 Type=1
 Ver=2
 ObjFiles=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=00000000g0000000000000000
-UnitCount=6
+UnitCount=4
 
 [VersionInfo]
 Major=1
@@ -50,38 +50,8 @@ ProductVersion=
 AutoIncBuildNr=0
 SyncProduct=1
 
-[Unit5]
-FileName=queue.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit6]
-FileName=singlyqueue.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit1]
-FileName=linkedlist.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit2]
-FileName=list.h
+FileName=node.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -91,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=main.cpp
+FileName=bintree.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -101,7 +71,17 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=node.h
+FileName=mybintree.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit1]
+FileName=main.cpp
 CompileCpp=1
 Folder=
 Compile=1

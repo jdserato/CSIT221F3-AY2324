@@ -46,6 +46,22 @@ public:
 		addFirst(num);
 	}
 	
+	int removeFirst() {
+		if (!head) {
+			return -1;
+		}
+		int tmp = head->elem;
+		// Step 1: Get next head
+		node* n_head = head->next;
+		// Step 2: Free head
+		free(head);
+		// Step 3: Set head to n_head
+		head = n_head;
+		// Step 4: Size--
+		size--;
+		return tmp;
+	}
+	
 	int get(int pos) {
 		node* curr = head;
 		int ctr = 1;
@@ -54,6 +70,10 @@ public:
 			ctr++;
 		}
 		return curr->elem;
+	}
+	
+	int _size() {
+		return size;
 	}
 	
 	int remove(int num) {
